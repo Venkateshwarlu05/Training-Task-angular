@@ -1,0 +1,83 @@
+<favourite [isSelected]="isFavourite" (change)="onFavouriteChanged($event)"></favourite>
+<bootstrap-panel>
+    <ng-container class="heading"><h1>Heading</h1></ng-container>
+    <ng-container class="body"><h4>Body</h4></ng-container>
+</bootstrap-panel>
+<course></course>
+<movie-name></movie-name>
+<like></like>
+<like-assignment [likesCount]="tweet.likesCount" [isActive]="tweet.isLiked"></like-assignment>
+
+
+<p>-----------------------------------------------------------</p>
+<h1>using ngIf in different cases.</h1>
+<div *ngIf="courses.length > 0">
+    <h4>List of courses-1</h4>
+</div>
+<div *ngIf="courses.length == 0">
+    <h4>No courses yet-1</h4>
+</div>
+
+<div *ngIf="courses.length > 0; else noCourses">
+    <h4>List of courses-2</h4>
+</div>
+<ng-template #noCourses>
+    <h4>No courses yet-2</h4>
+</ng-template>
+
+<p>-----------------------------------------------------------</p>
+<h1>using hidden attribute instead of ngIf.</h1>
+<div [hidden]="courses.length==0"><h4>List of Courses-3</h4></div>
+<div [hidden]="courses.length>0"><h4>No Courses Yet-3</h4></div>
+
+
+
+<p>-----------------------------------------------------------</p>
+<h1>using ng switch case</h1>
+<ul class="nav nav-pills">
+    <li [class.active]="viewMode == 'map'"><a (click)="viewMode='map'">Map View</a></li>
+    <li [class.active]="viewMode == 'list'"><a (click)="viewMode='list'">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+    <div *ngSwitchCase="'map'">Map View Content</div>
+    <div *ngSwitchCase="'list'">List View Content</div>
+    <div *ngSwitchDefault>Otherwise</div>
+</div><br>
+<p>-----------------------------------------------------------</p>
+<h1>Adding/Removing and updating the courses. (Learning phase)</h1>
+
+<button (click)="onAdd()">Add</button>
+<ul>
+    <li *ngFor="let course of courses1">
+       {{ course.name}}
+       <button (click)="onRemove(course)">Remove</button>
+       <button (click)="onChange(course)">Update Course Name</button>
+    </li>
+</ul>
+
+<p>-----------------------------------------------------------</p>
+<h1>using custom directives (convert the input text to lower case).</h1>
+<input type="text" appInputFormat>
+<p>-------------------------------------------------------------------</p>
+<h1>bootstrap panel assignment.</h1>
+<p>done using html and css. Try with bootstrap form.</p>
+<zippy title="Shipping Details">Shipping Details Content</zippy>
+<zippy title="Billing Details">Billing Details Content</zippy>
+<p>---------------------------------------------------------------------</p>
+<h1>contact form with validations using Template Driven Forms. (learning phase)</h1>
+<contact-form></contact-form>
+<p>----------------------------------------------------------------------------------------------------</p>
+<h1>creating new course form. (assignment)</h1>
+<new-course-form></new-course-form>
+<p>--------------------------------------------------------------------------</p>
+<h1>Sign up form. (using Reactive Forms)</h1>
+<signup-form></signup-form>
+<p>----------------------------------------------------------------------------------</p>
+<h1>Change of Password form. (assignment)</h1>
+<password-change></password-change>
+<p>-------------------------------------------------------------------</p>
+<h1>Adding or Removing the elements.</h1>
+<course-add-remove-form></course-add-remove-form>
+<p>---------------------------------------------------------------------</p>
+<h1>Using HTTP services.</h1>
+<app-posts></app-posts>

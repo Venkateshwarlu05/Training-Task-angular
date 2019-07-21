@@ -1,0 +1,7 @@
+<span 
+  class="glyphicon"
+  [class.glyphicon-heart]="isSelected"
+  [class.glyphicon-heart-empty]="!isSelected"
+  (click)="onClick()">
+</span>
+{{ likesCount }}
